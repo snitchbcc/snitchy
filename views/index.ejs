@@ -1,0 +1,37 @@
+<%- await render("include/menu.ejs") %>
+
+<div>
+
+	<div style="width: 100%;">
+
+		<img src="img/mascot.jpg" alt="" style="width: 30%; margin: auto;">
+
+	</div>
+
+	<div class="section">
+
+		<h1>Featured Articles</h1>
+
+	</div>
+
+	<div class="articles">
+
+		<% for (const article of sortByDate(posts.category("featured").slice(0, 10000))) { %>
+
+			<a href="/article/<%- article.fields.slug %>">
+
+				<div class="body">
+
+					<p><strong><%- article.fields.authors %> &mdash; <%- article.fields.release_date %></strong></p>
+					<h2 class="title"><%- article.fields.title %></h2>
+					<h3 class="subtitle"><%- article.fields.subtitle %></h3>
+
+				</div>
+
+			</a>
+
+		<% } %>
+
+	</div>
+
+</div>

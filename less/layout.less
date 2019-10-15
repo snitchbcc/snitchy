@@ -1,0 +1,248 @@
+html, body {
+
+	margin: 0;
+	padding: 0;
+
+	width: 100%;
+	height: 100%;
+
+}
+
+#app {
+
+	height: 100%;
+
+}
+
+#menu {
+
+	padding: @section_padding;
+
+	.brand_header {
+
+		display: inline-block;
+
+		// border-radius: @border_radius;
+		// border-bottom: 3px solid @black;
+
+		color: @black;
+		font-size: 20pt;
+
+	}
+
+	#menu_items {
+
+		position: absolute;
+
+		right: 0;
+
+		display: inline-block;
+
+		padding: inherit;
+
+		font-size: 20pt;
+
+		&>* {
+
+			color: @black;
+
+			margin-left: 15px;
+			
+			text-decoration: none;
+
+			&:before {
+
+				content: "/";
+
+				opacity: 0.2;
+
+				font-weight: 700;
+
+				.transition();
+
+			}
+
+			&:hover:before {
+
+				opacity: 1;
+
+			}
+
+		}
+
+	}
+
+}
+
+.section {
+
+	padding: @section_padding;
+
+}
+
+#about_intro {
+
+	min-height: 100vh;
+
+	padding: @section_padding;
+
+	color: @black;
+
+	background-color: @white;
+
+	#quote_and_explanation {
+
+		padding: @section_padding;
+
+		&>*>p:first-child {
+
+			margin: 0;
+
+		}
+
+		&>*>p {
+			
+			line-height: 1.5;
+
+		}
+
+	}
+
+	.brand_slogan {
+
+		display: block;
+
+		margin: 0;
+
+		font-size: 50pt;
+		font-family: @informal_font;
+
+	}
+
+	.brand_message {
+
+		display: block;
+
+		margin-top: 50px;
+
+		font-size: 25pt;
+		font-family: @informal_font;
+
+		&:last-child {
+
+			margin-bottom: 50px;
+
+		}
+
+	}
+
+	@media only screen and (max-width: @mobile_width) {
+
+		.brand_slogan {
+
+			margin: 0;
+	
+			font-size: 35pt !important;
+	
+		}
+
+	}
+
+}
+
+.split {
+
+	display: flex;
+
+	&>* {
+
+		display: inline-block;
+
+		&:not(:last-child) {
+
+			margin-right: 100px;
+
+		}
+
+	}
+
+	&.half_split {
+
+		&>* {
+
+			width: 50%;
+
+		}
+
+	}
+
+	@media only screen and (max-width: @mobile_width) {
+
+		display: block;
+
+		&>* {
+
+			display: block;
+
+			width: auto !important;
+
+		}
+
+	}
+
+}
+
+.articles {
+
+	display: flex;
+	
+	flex-wrap: wrap; 
+
+	&>* {
+
+		display: inline-block;
+
+		margin: 2.5px;
+
+		flex: 1 0 25%;
+
+		color: @white;
+		text-decoration: none;
+
+		background-color: @gray;
+
+		&>.body {
+
+			display: inline-block;
+
+			padding: @section_padding;
+
+			min-width: 350px;
+			max-width: 500px;
+
+			&>.title, &>.subtitle {
+
+			}
+
+		}
+
+		&:hover {
+
+			background-color: darken(@gray, 10%);	
+
+		}
+
+		.transition();
+
+		cursor: pointer;
+
+	}
+
+}
+
+#article_content {
+
+	padding-left: 15%;
+	padding-right: 15%;
+
+}
