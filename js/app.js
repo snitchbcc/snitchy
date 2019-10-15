@@ -41,7 +41,7 @@ async function render (view, data) {
 
 		url (url) {
 
-			if (url.startsWith("/")) return `https://${location.hostname}/api/file${url}`;
+			if (url.startsWith("/")) return `http://${location.hostname}/api/file${url}`;
 			else return url;
 
 		},
