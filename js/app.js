@@ -1,4 +1,4 @@
-const API_ROOT = `https://${location.hostname}/api`;
+const API_ROOT = `http://${location.hostname}/api`;
 
 const ARTICLE_TEMPLATE = "gpi4ir8nujp";
 
