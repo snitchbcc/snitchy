@@ -1,4 +1,4 @@
-const API_ROOT = `http://${location.hostname}/api`;
+const API_ROOT = `https://${location.hostname}/api`;
 
 const ARTICLE_TEMPLATE = "gpi4ir8nujp";
 
@@ -41,7 +41,7 @@ async function render (view, data) {
 
 		url (url) {
 
-			if (url.startsWith("/")) return `http://${location.hostname}/api/file${url}`;
+			if (url.startsWith("/")) return `https://${location.hostname}/api/file${url}`;
 			else return url;
 
 		},
