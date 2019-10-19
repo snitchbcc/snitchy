@@ -97,9 +97,10 @@ body {
   position: fixed;
   top: 0;
   box-shadow: 0 0 2.5px #8d8d8d;
-  padding: 18px 32px;
+  padding: 8px 32px;
   width: 100%;
   background-color: white;
+  z-index: 2;
 }
 #menu .brand_header {
   display: inline-block;
@@ -221,7 +222,7 @@ body {
 .articles > * {
   display: inline-block;
   margin: 1px;
-  flex: 1 0 25%;
+  flex: 1 0 33%;
   color: white;
   text-decoration: none;
   background-color: #8d8d8d;
@@ -231,11 +232,23 @@ body {
 .articles > * > .body {
   display: inline-block;
   padding: 18px 32px;
-  min-width: 350px;
-  max-width: 500px;
+  transition: 0.2s all;
 }
 .articles > *:hover {
+  opacity: 1 !important;
   background-color: #414141;
+}
+.articles > *:active > .body {
+  transform: scale(0.95);
+}
+.articles > *:before {
+  content: "";
+  display: block;
+  float: left;
+  padding-top: 100%;
+}
+.articles:hover > * {
+  opacity: 0.8;
 }
 #article_content {
   padding-left: 15%;

@@ -28,7 +28,7 @@ html, body {
 
 	box-shadow: 0 0 2.5px @light_gray;
 
-	padding: @section_padding;
+	padding: 8px 32px;
 
 	width: 100%;
 
@@ -127,6 +127,8 @@ html, body {
 		}
 
 	}
+	
+	z-index: 2;
 
 }
 
@@ -270,7 +272,7 @@ html, body {
 
 		margin: 1px;
 
-		flex: 1 0 25%;
+		flex: 1 0 33%;
 
 		color: @white;
 		text-decoration: none;
@@ -283,24 +285,60 @@ html, body {
 
 			padding: @section_padding;
 
-			min-width: 350px;
-			max-width: 500px;
+			// min-width: 350px;
+			// max-width: 500px;
 
 			&>.title, &>.subtitle {
 
 			}
 
+			.transition();
+
 		}
 
 		&:hover {
 
+			opacity: 1 !important;
 			background-color: darken(@gray, 10%);	
 
+		}
+
+		&:active {
+
+			// margin: 10px;
+			&>.body {
+
+				transform: scale(0.95);
+
+			}
+			
+		}
+
+		&:before {
+	
+			content: "";
+
+			display: block;
+
+			float: left;
+
+			padding-top: 100%;
+		
 		}
 
 		.transition();
 
 		cursor: pointer;
+
+	}
+
+	&:hover {
+
+		&>* {
+
+			opacity: 0.8;
+
+		}
 
 	}
 

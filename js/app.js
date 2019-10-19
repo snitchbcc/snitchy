@@ -154,6 +154,8 @@ async function main () {
 
 	load();
 
+	window.onpopstate = load;
+
 	document.addEventListener("click", event => {
 
 		if (!event.target) return;
@@ -163,7 +165,12 @@ async function main () {
 		if (a && a.href && (a.href.startsWith("/") || a.href.indexOf(location.origin) !== -1)) {
 
 			history.pushState(null, null, a.href);
-			load();
+			(async () => {
+
+				await load();
+				window.scrollTo(0, 0);
+
+			})();
 
 			event.preventDefault();
 			return false;
