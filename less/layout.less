@@ -1,3 +1,9 @@
+* {
+
+	box-sizing: border-box;
+
+}
+
 html, body {
 
 	margin: 0;
@@ -16,7 +22,17 @@ html, body {
 
 #menu {
 
+	position: fixed;
+
+	top: 0;
+
+	box-shadow: 0 0 2.5px @light_gray;
+
 	padding: @section_padding;
+
+	width: 100%;
+
+	background-color: @white;
 
 	.brand_header {
 
@@ -28,13 +44,35 @@ html, body {
 		color: @black;
 		font-size: 20pt;
 
+		& * {
+
+			vertical-align: middle;
+
+		}
+
+		& img {
+
+			margin-right: 25px;
+
+			width: 50px;
+
+		}
+
+		.brand_slogan {
+
+			font-size: 10pt;
+
+		}
+
 	}
 
 	#menu_items {
 
 		position: absolute;
 
+		top: 50%;
 		right: 0;
+		transform: translate(0, -50%);
 
 		display: inline-block;
 
@@ -70,7 +108,31 @@ html, body {
 
 		}
 
+		@media only screen and (max-width: @mobile_width) {
+
+			display: none;
+			position: relative;
+
+			transform: none;
+
+			padding: 0;
+
+			&>* {
+
+				margin-left: 0px;
+				margin-right: 15px;
+
+			}
+
+		}
+
 	}
+
+}
+
+.main {
+
+	margin-top: 121px;
 
 }
 
@@ -178,9 +240,13 @@ html, body {
 
 	@media only screen and (max-width: @mobile_width) {
 
-		display: block;
+		&:not(.always) {
+		
+			display: block;
 
-		&>* {
+		}
+
+		&:not(.always)>* {
 
 			display: block;
 
@@ -202,14 +268,14 @@ html, body {
 
 		display: inline-block;
 
-		margin: 2.5px;
+		margin: 1px;
 
 		flex: 1 0 25%;
 
 		color: @white;
 		text-decoration: none;
 
-		background-color: @gray;
+		background-color: @light_gray;
 
 		&>.body {
 
