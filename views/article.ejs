@@ -1,27 +1,47 @@
-<%- await render("include/menu.ejs") %>
+<%
 
-<% const article = posts.slug(location.pathname.split("/")[2]) %>
+	const article = posts.slug(params.slug);
+	seo.title = article.fields.title;
 
-<div class="main">
+%>
 
-	<% if (article.fields.thumbnail) { %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 	
-		<div style="background-image: url('<%- url(article.fields.thumbnail) %>'); background-position: center; width: 100%; height: 400px; background-repeat: no-repeat;"></div>
-	
-	<% } %>
+	<% include include/seo/standard.ejs %>
+	<% include include/head.ejs %>
 
-	<div id="article_content" class="section">
+</head>
+<body>
 
-		<h3><%- article.fields.authors %> - <%- article.fields.release_date %></h3>
-		<h1><%- article.fields.title %></h1>
-		<h2><%- article.fields.subtitle %></h2>
+	<% include include/menu.ejs %>
 
-		<div id="article_body">
+	<div class="main">
 
-			<%- article.fields.content %>
+		<% if (article.fields.thumbnail) { %>
+		
+			<div style="background-image: url('<%- url(article.fields.thumbnail) %>'); background-position: center; width: 100%; height: 400px; background-repeat: no-repeat;"></div>
+		
+		<% } %>
+
+		<div id="article_content" class="section">
+
+			<h3><%- article.fields.authors %> - <%- article.fields.release_date %></h3>
+			<h1><%- article.fields.title %></h1>
+			<h2><%- article.fields.subtitle %></h2>
+
+			<div id="article_body">
+
+				<%- article.fields.content %>
+
+			</div>
 
 		</div>
 
 	</div>
 
-</div>
+	<% include include/footer.ejs %>
+
+</body>
+</html>

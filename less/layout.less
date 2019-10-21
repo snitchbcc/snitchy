@@ -48,6 +48,8 @@ html, body {
 
 			vertical-align: middle;
 
+			.transition();
+
 		}
 
 		& img {
@@ -126,9 +128,47 @@ html, body {
 
 		}
 
+		.transition();
+
 	}
 	
+	&.transparent:not(:hover) {
+
+		box-shadow: none;
+		background-color: transparent;
+
+		&>.brand_header {
+			
+			img {
+
+				padding: 10px;
+
+				background-color: @white;
+
+				pointer-events: all;
+
+			}
+
+			div {
+
+				opacity: 0;
+
+			}
+
+			pointer-events: none;
+
+		}
+
+		#menu_items {
+
+			opacity: 0;
+
+		}
+
+	}
+
 	z-index: 2;
+	.transition();
 
 }
 

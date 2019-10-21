@@ -1,6 +1,6 @@
 <%
 
-	seo.title = "Featured Articles";
+	seo.title = "Culture";
 
 %>
 
@@ -20,13 +20,13 @@
 
 		<div class="section">
 
-			<h1>Featured Articles</h1>
+			<h1>Culture</h1>
 
 		</div>
 
 		<div class="articles">
 
-			<% for (const article of sortByDate(posts.category("featured").slice(0, 10000))) { %>
+			<% for (const article of sortByDate(posts.category("culture").slice(0, 10000))) { %>
 
 				<a href="/article/<%- article.fields.slug %>">
 

@@ -1,0 +1,19 @@
+<script async="true">
+
+	document.getElementById("no_transition").remove();
+
+	document.addEventListener("scroll", event => {
+
+		if (scrollY > 150) {
+
+			document.getElementById("menu").classList.add("transparent");
+
+		} else {
+
+			document.getElementById("menu").classList.remove("transparent");
+
+		}
+
+	});
+
+</script>

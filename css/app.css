@@ -96,11 +96,12 @@ body {
 #menu {
   position: fixed;
   top: 0;
-  box-shadow: 0 0 2.5px #8d8d8d;
+  box-shadow: 0 0 2.5px #a7a7a7;
   padding: 8px 32px;
   width: 100%;
   background-color: white;
   z-index: 2;
+  transition: 0.2s all;
 }
 #menu .brand_header {
   display: inline-block;
@@ -109,6 +110,7 @@ body {
 }
 #menu .brand_header * {
   vertical-align: middle;
+  transition: 0.2s all;
 }
 #menu .brand_header img {
   margin-right: 25px;
@@ -125,6 +127,7 @@ body {
   display: inline-block;
   padding: inherit;
   font-size: 20pt;
+  transition: 0.2s all;
 }
 #menu #menu_items > * {
   color: #1B1B1B;
@@ -151,6 +154,24 @@ body {
     margin-left: 0px;
     margin-right: 15px;
   }
+}
+#menu.transparent:not(:hover) {
+  box-shadow: none;
+  background-color: transparent;
+}
+#menu.transparent:not(:hover) > .brand_header {
+  pointer-events: none;
+}
+#menu.transparent:not(:hover) > .brand_header img {
+  padding: 10px;
+  background-color: white;
+  pointer-events: all;
+}
+#menu.transparent:not(:hover) > .brand_header div {
+  opacity: 0;
+}
+#menu.transparent:not(:hover) #menu_items {
+  opacity: 0;
 }
 .main {
   margin-top: 121px;
@@ -225,7 +246,7 @@ body {
   flex: 1 0 33%;
   color: white;
   text-decoration: none;
-  background-color: #8d8d8d;
+  background-color: #a7a7a7;
   transition: 0.2s all;
   cursor: pointer;
 }
