@@ -109,7 +109,7 @@ body {
   font-size: 20pt;
 }
 #menu .brand_header * {
-  vertical-align: middle;
+  vertical-align: top;
   transition: 0.2s all;
 }
 #menu .brand_header img {

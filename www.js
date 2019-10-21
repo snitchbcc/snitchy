@@ -9,23 +9,39 @@ const utils = API_ROOT => ({
 
 	},
 
+	pages: {
+
+		all () {
+
+			return db.elements.accessible().filter(_ => db.templates.templateNameFromId(_.template) === "Page");
+
+		},
+
+		title (title) {
+
+			return this.all().find(_ => _.fields.title.toLowerCase() === title.toLowerCase());
+
+		}
+
+	},
+
 	posts: {
 
 		all () {
 
-			return db.elements.elements();
+			return db.elements.accessible().filter(_ => db.templates.templateNameFromId(_.template) === "Article");
 
 		},
 
 		category (category) {
 
-			return db.elements.findElements(_ => _.fields.categories.split(",").map(__ => __.trim().toLowerCase()).indexOf(category.toLowerCase()) !== -1);
+			return this.all().filter(_ => _.fields.categories.split(",").map(__ => __.trim().toLowerCase()).indexOf(category.toLowerCase()) !== -1);
 
 		},
 
 		slug (slug) {
 
-			return db.elements.findElement(_ => _.fields.slug.toLowerCase() === slug.toLowerCase());
+			return this.all().find(_ => _.fields.slug.toLowerCase() === slug.toLowerCase());
 
 		}
 
@@ -105,6 +121,12 @@ get("/politics", (req, res) => {
 get("/culture", (req, res) => {
 
 	res.status(200).ejs("views/culture.ejs", standard(req));
+
+});
+
+get("/contact", (req, res) => {
+
+	res.status(200).ejs("views/contact.ejs", standard(req));
 
 });
 
