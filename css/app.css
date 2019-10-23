@@ -23,6 +23,7 @@ a,
 p,
 li,
 span {
+  color: #5a5a5a;
   line-height: 1;
   font-family: "Roboto";
 }
@@ -109,7 +110,7 @@ body {
   font-size: 20pt;
 }
 #menu .brand_header * {
-  vertical-align: top;
+  vertical-align: middle;
   transition: 0.2s all;
 }
 #menu .brand_header img {
@@ -124,24 +125,22 @@ body {
   top: 50%;
   right: 0;
   transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
   display: inline-block;
   padding: inherit;
   font-size: 20pt;
   transition: 0.2s all;
 }
 #menu #menu_items > * {
-  color: #1B1B1B;
+  position: relative;
   margin-left: 15px;
+  color: #1B1B1B;
+  font-weight: 600;
   text-decoration: none;
-}
-#menu #menu_items > *:before {
-  content: "/";
-  opacity: 0.2;
-  font-weight: 700;
   transition: 0.2s all;
 }
-#menu #menu_items > *:hover:before {
-  opacity: 1;
+#menu #menu_items > *:hover {
+  color: #5a5a5a;
 }
 @media only screen and (max-width: 950px) {
   #menu #menu_items {
@@ -163,8 +162,10 @@ body {
   pointer-events: none;
 }
 #menu.transparent:not(:hover) > .brand_header img {
+  border-radius: 3px;
   padding: 10px;
   background-color: white;
+  box-shadow: 0 0 2.5px #a7a7a7;
   pointer-events: all;
 }
 #menu.transparent:not(:hover) > .brand_header div {
@@ -174,46 +175,26 @@ body {
   opacity: 0;
 }
 .main {
-  margin-top: 121px;
+  margin-top: 95.5px;
 }
 .section {
   padding: 18px 32px;
 }
-#about_intro {
-  min-height: 100vh;
-  padding: 18px 32px;
-  color: #1B1B1B;
-  background-color: white;
-}
-#about_intro #quote_and_explanation {
+#about {
   padding: 18px 32px;
 }
-#about_intro #quote_and_explanation > * > p:first-child {
-  margin: 0;
+#about #about_people > div > div {
+  display: flex;
+  flex-wrap: wrap;
 }
-#about_intro #quote_and_explanation > * > p {
-  line-height: 1.5;
-}
-#about_intro .brand_slogan {
-  display: block;
-  margin: 0;
-  font-size: 50pt;
-  font-family: "Roboto";
-}
-#about_intro .brand_message {
-  display: block;
-  margin-top: 50px;
-  font-size: 25pt;
-  font-family: "Roboto";
-}
-#about_intro .brand_message:last-child {
-  margin-bottom: 50px;
-}
-@media only screen and (max-width: 950px) {
-  #about_intro .brand_slogan {
-    margin: 0;
-    font-size: 35pt !important;
-  }
+#about #about_people > div > div > div {
+  border: 1px solid #a7a7a7;
+  border-radius: 3px;
+  flex: 1 0 33%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 18px 32px;
+  max-width: 45%;
 }
 .split {
   display: flex;
@@ -244,11 +225,14 @@ body {
   display: inline-block;
   margin: 1px;
   flex: 1 0 33%;
-  color: white;
+  max-height: 33vw;
   text-decoration: none;
-  background-color: #a7a7a7;
+  background-color: #0070ff;
   transition: 0.2s all;
   cursor: pointer;
+}
+.articles > * * {
+  color: white;
 }
 .articles > * > .body {
   display: inline-block;
@@ -257,7 +241,7 @@ body {
 }
 .articles > *:hover {
   opacity: 1 !important;
-  background-color: #414141;
+  background-color: #005acc;
 }
 .articles > *:active > .body {
   transform: scale(0.95);

@@ -47,9 +47,31 @@ const utils = API_ROOT => ({
 
 	},
 
+	profiles: {
+
+		all () {
+
+			return db.elements.accessible().filter(_ => db.templates.templateNameFromId(_.template) === "Profile");
+
+		},
+
+		role (role) {
+
+			return this.all().filter(_ => _.fields.role === role);
+
+		}
+
+	},
+
 	sortByDate (arr) {
 
 		return arr.sort((a, b) => new Date(b.fields.release_date) - new Date(a.fields.release_date));
+
+	},
+
+	capitalize (string) {
+
+		return string.slice(0, 1).toUpperCase() + string.slice(1);
 
 	}
 

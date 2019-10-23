@@ -46,7 +46,7 @@ html, body {
 
 		& * {
 
-			vertical-align: top;
+			vertical-align: middle;
 
 			.transition();
 
@@ -75,6 +75,7 @@ html, body {
 		top: 50%;
 		right: 0;
 		transform: translate(0, -50%);
+		-webkit-transform: translate(0, -50%);
 
 		display: inline-block;
 
@@ -84,29 +85,21 @@ html, body {
 
 		&>* {
 
-			color: @black;
+			position: relative;
 
 			margin-left: 15px;
 			
+			color: @black;
+			font-weight: 600;
 			text-decoration: none;
 
-			&:before {
+			&:hover {
 
-				content: "/";
-
-				opacity: 0.2;
-
-				font-weight: 700;
-
-				.transition();
+				color: @gray;
 
 			}
 
-			&:hover:before {
-
-				opacity: 1;
-
-			}
+			.transition();
 
 		}
 
@@ -141,10 +134,13 @@ html, body {
 			
 			img {
 
+				border-radius: @border_radius;
+
 				padding: 10px;
 
 				background-color: @white;
 
+				box-shadow: 0 0 2.5px @light_gray;
 				pointer-events: all;
 
 			}
@@ -174,7 +170,7 @@ html, body {
 
 .main {
 
-	margin-top: 121px;
+	margin-top: 95.5px;
 
 }
 
@@ -184,74 +180,42 @@ html, body {
 
 }
 
-#about_intro {
-
-	min-height: 100vh;
+#about {
 
 	padding: @section_padding;
 
-	color: @black;
+	#about_people {
 
-	background-color: @white;
+		&>div {
 
-	#quote_and_explanation {
+			&>div {
 
-		padding: @section_padding;
+				display: flex;
 
-		&>*>p:first-child {
+				flex-wrap: wrap;
 
-			margin: 0;
+				&>div {
 
-		}
+					border: @border_width solid @light_gray;
+					border-radius: @border_radius;
 
-		&>*>p {
-			
-			line-height: 1.5;
+					flex: 1 0 33%;
 
-		}
+					margin-right: 20px;
+					margin-bottom: 20px;
 
-	}
+					padding: @section_padding;
 
-	.brand_slogan {
+					max-width: 45%;
 
-		display: block;
+				}
 
-		margin: 0;
-
-		font-size: 50pt;
-		font-family: @informal_font;
-
-	}
-
-	.brand_message {
-
-		display: block;
-
-		margin-top: 50px;
-
-		font-size: 25pt;
-		font-family: @informal_font;
-
-		&:last-child {
-
-			margin-bottom: 50px;
+			}
 
 		}
 
 	}
-
-	@media only screen and (max-width: @mobile_width) {
-
-		.brand_slogan {
-
-			margin: 0;
 	
-			font-size: 35pt !important;
-	
-		}
-
-	}
-
 }
 
 .split {
@@ -313,11 +277,12 @@ html, body {
 		margin: 1px;
 
 		flex: 1 0 33%;
+		max-height: 33vw;
 
-		color: @white;
+		* {color: @white;}
 		text-decoration: none;
 
-		background-color: @light_gray;
+		background-color: @blue;
 
 		&>.body {
 
@@ -339,7 +304,7 @@ html, body {
 		&:hover {
 
 			opacity: 1 !important;
-			background-color: darken(@gray, 10%);	
+			background-color: darken(@blue, 10%);	
 
 		}
 
