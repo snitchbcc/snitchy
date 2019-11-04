@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'Jomolhari';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Jomolhari Regular'), local('Jomolhari-Regular'), url(https://fonts.gstatic.com/s/jomolhari/v1/EvONzA1M1Iw_CBd2hsQyEFgd.ttf) format('truetype');
+}
+@font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -25,7 +32,7 @@ li,
 span {
   color: #5a5a5a;
   line-height: 1;
-  font-family: "Roboto";
+  font-family: "Jomolhari";
 }
 a,
 p,
@@ -59,17 +66,26 @@ h6 * {
 h1 {
   font-size: 36pt;
   font-weight: 700;
-  font-family: "Roboto";
+}
+h1,
+h1 * {
+  font-family: "Jomolhari";
 }
 h2 {
   font-size: 28pt;
   font-weight: 500;
-  font-family: "Roboto";
+}
+h2,
+h2 * {
+  font-family: "Jomolhari";
 }
 h3 {
   font-size: 20pt;
   font-weight: 400;
-  font-family: "Roboto";
+}
+h3,
+h3 * {
+  font-family: "Jomolhari";
 }
 .brand {
   color: #1B1B1B;
@@ -180,6 +196,15 @@ body {
 .section {
   padding: 18px 32px;
 }
+.section.dark {
+  background-color: #1B1B1B;
+}
+.section.fullscreen {
+  height: 92vh;
+}
+.section.fullscreen * {
+  color: white;
+}
 #about {
   padding: 18px 32px;
 }
@@ -227,7 +252,7 @@ body {
   flex: 1 0 33%;
   max-height: 33vw;
   text-decoration: none;
-  background-color: #0070ff;
+  background-color: #1B1B1B;
   transition: 0.2s all;
   cursor: pointer;
 }

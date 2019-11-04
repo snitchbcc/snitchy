@@ -178,6 +178,24 @@ html, body {
 
 	padding: @section_padding;
 
+	&.dark {
+
+		background-color: @black;
+
+	}
+
+	&.fullscreen {
+
+		height: 92vh;
+
+		& * {
+
+			color: @white;
+
+		}
+
+	}
+
 }
 
 #about {
@@ -282,7 +300,7 @@ html, body {
 		* {color: @white;}
 		text-decoration: none;
 
-		background-color: @blue;
+		background-color: @black;
 
 		&>.body {
 
