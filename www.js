@@ -110,7 +110,7 @@ notFound((req, res) => {
 
 // Routes
 
-get("/", (req, res) => {
+get("/a", (req, res) => {
 
 	res.status(200).ejs("views/index.ejs", standard(req));
 
