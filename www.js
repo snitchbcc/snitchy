@@ -99,7 +99,7 @@ const standard = req => ({
 error((req, res, err) => {
 
 	// res.status(500).ejs("views/404.ejs", standard(req));
-	res.status().json({
+	res.status(500).json({
 
 		error: err
 
