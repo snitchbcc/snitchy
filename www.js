@@ -96,11 +96,16 @@ const standard = req => ({
 
 // Error Handlers
 
-// error((req, res) => {
+error((req, res, err) => {
 
-// 	res.status(500).ejs("views/404.ejs", standard(req));
+	// res.status(500).ejs("views/404.ejs", standard(req));
+	res.status().json({
 
-// });
+		error: err
+
+	});
+
+});
 
 notFound((req, res) => {
 
