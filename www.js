@@ -1,4 +1,4 @@
-auto(["/", "/index.html", "/css/(.*)", "/img/(.*)", "/js/(.*)", "/views/(.*)"]);
+auto(["/css/(.*)", "/img/(.*)", "/js/(.*)"]);
 
 const utils = API_ROOT => ({
 
