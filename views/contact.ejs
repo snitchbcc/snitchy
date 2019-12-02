@@ -16,17 +16,21 @@
 	
 	<% include include/menu.ejs %>
 
-	<div class="main">
+	<main>
 
-		<div class="section">
+		<div class="titled_section">
 
-			<h1>Contact Us</h1>
+			<span class="title">Contact</span>
 
-			<%- pages.title("Contact").fields.content %>
+			<div class="text">
+
+				<%- pages.title("Contact").fields.content %>
+
+			</div>
 
 		</div>
 
-	</div>
+	</main>
 
 	<% include include/footer.ejs %>
 
