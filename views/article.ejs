@@ -17,7 +17,7 @@
 
 	<% include include/menu.ejs %>
 
-	<div class="main">
+	<main>
 
 		<% if (article.fields.thumbnail) { %>
 		
@@ -25,13 +25,13 @@
 		
 		<% } %>
 
-		<div id="article_content" class="section">
+		<div id="post">
 
-			<h3><%- article.fields.authors %> - <%- article.fields.release_date %></h3>
-			<h1><%- article.fields.title %></h1>
-			<h2><%- article.fields.subtitle %></h2>
+			<span class="pretitle"><%- article.fields.authors %> - <%- article.fields.release_date %></span>
+			<span class="title"><%- article.fields.title %></span>
+			<span class="subtitle"><%- article.fields.subtitle %></span>
 
-			<div id="article_body">
+			<div class="body">
 
 				<%- article.fields.content %>
 
@@ -39,7 +39,7 @@
 
 		</div>
 
-	</div>
+	</main>
 
 	<% include include/footer.ejs %>
 

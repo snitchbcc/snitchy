@@ -16,51 +16,62 @@
 	
 	<% include include/menu.ejs %>
 
-	<div class="main">
+	<main>
 
-		<div class="section fullscreen dark split half_split" style="overflow: hidden;">
+		<div class="titled_section">
 
-			<div>
+			<span class="title">The Latest</span>
 
-				<h2 style="font-size: 45pt;">The Snitch is <i>empowering modern journalism</i></h2>
+			<div class="posts">
 
-			</div>
-
-			<div>
-
-				<img src="img/mascot.jpg" style="width: 75%;">
-
-			</div>
-
-		</div>
-
-		<div class="section">
-
-			<h1>Featured Articles</h1>
-
-		</div>
-
-		<div class="articles">
-
-			<% for (const article of sortByDate(posts.category("featured").slice(0, 10000))) { %>
-
-				<a href="/article/<%- article.fields.slug %>">
+				<div class="large">
 
 					<div class="body">
 
-						<p><strong><%- article.fields.authors %> &mdash; <%- article.fields.release_date %></strong></p>
-						<h2 class="title"><%- article.fields.title %></h2>
-						<h3 class="subtitle"><%- article.fields.subtitle %></h3>
+						<div class="titles">
+
+							<span class="title">
+
+								Democracy bumps into things in darkness.
+		
+							</span>
+
+						</div>
 
 					</div>
 
-				</a>
+				</div>
 
-			<% } %>
+				<% for (const article of sortByDate(posts.category("featured").slice(0, 10000))) { %>
+
+					<div class="interactive">
+
+						<div class="body">
+
+							<div class="titles">
+
+								<span class="title"><%- article.fields.title %></span>
+								<span class="date"><%- article.fields.release_date %></span>
+
+							</div>
+
+							<div class="actions">
+
+								<a href="/article/<%- article.fields.slug %>" class="read">Read</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				<% } %>
+
+			</div>
 
 		</div>
 
-	</div>
+	</main>
 
 	<% include include/footer.ejs %>
 

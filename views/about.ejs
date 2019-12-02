@@ -11,46 +11,97 @@
 	<% include include/seo/standard.ejs %>
 	<% include include/head.ejs %>
 
+	<style>
+	
+		.posts {
+
+			margin-bottom: 20px;
+
+		}
+
+	</style>
+
 </head>
 <body>
 
 	<% include include/menu.ejs %>
 
-	<div id="about" class="main">
-		
-		<h1>About</h1>
+	<main>
 
-		<div id="about_people">
+		<div class="titled_section">
+
+			<span class="title">About</span>
+
+			<div class="text">
+
+				<%- pages.title("About").fields.content %>
+
+			</div>
 
 			<% for (const role of ["executive", "lead", "staff", "contributor"]) { %>
 
-				<div>
-	
-					<h2><%- capitalize(role) + (role !== "staff" ? "s" : "") %></h2>
-	
-					<div>
+				<div class="posts">
 
-						<% for (const profile of profiles.role(role)) { %>
-	
-							<div>
-	
-								<h3><%- profile.fields.title %> &bullet; <%- profile.fields.banner %></h3>
-	
-								<p><%- profile.fields.description %></p>
+					<div class="large_text">
+
+						<div class="body">
+
+							<div class="titles">
+
+								<span class="title"><%- capitalize(role) + (role !== "staff" ? "s" : "") %></span>
 
 							</div>
-	
-						<% } %>
+
+							<div class="actions">
+
+								
+
+							</div>
+
+						</div>
 
 					</div>
-	
+
+					<% for (const profile of profiles.role(role)) { %>
+
+						<div class="interactive">
+
+							<div class="body">
+
+								<div class="titles">
+
+									<span class="title"><%- profile.fields.title %></span>
+									<span class="subtitle"><%- profile.fields.banner %></span>
+
+								</div>
+
+								<div class="body">
+
+									<%- profile.fields.description %>
+
+								</div>
+
+								<div class="actions">
+
+									
+
+								</div>
+
+							</div>
+
+						</div>
+
+					<% } %>
+
 				</div>
-	
+
 			<% } %>
 
+			</div>
+
 		</div>
-		
-	</div>
+
+	</main>
 
 	<% include include/footer.ejs %>
 
