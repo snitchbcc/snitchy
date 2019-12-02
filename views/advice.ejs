@@ -16,35 +16,62 @@
 	
 	<% include include/menu.ejs %>
 
-	<div class="main">
+	<main>
 
-		<div class="section">
+		<div class="titled_section">
 
-			<h1>Advice</h1>
+			<div class="title">Advice</div>
 
-		</div>
+			<div class="posts">
 
-		<div class="articles">
-
-			<% for (const article of sortByDate(posts.category("advice").slice(0, 10000))) { %>
-
-				<a href="/article/<%- article.fields.slug %>">
+				<div class="large">
 
 					<div class="body">
 
-						<p><strong><%- article.fields.authors %> &mdash; <%- article.fields.release_date %></strong></p>
-						<h2 class="title"><%- article.fields.title %></h2>
-						<h3 class="subtitle"><%- article.fields.subtitle %></h3>
+						<div class="titles">
+
+							<span class="title">
+
+								Advice from the authors and other professionals!
+		
+							</span>
+
+						</div>
 
 					</div>
 
-				</a>
+				</div>
 
-			<% } %>
+				<% for (const article of sortByDate(posts.category("advice").slice(0, 10000))) { %>
+
+					<div class="interactive">
+
+						<div class="body">
+
+							<div class="titles">
+
+								<span class="title"><%- article.fields.title %></span>
+								<span class="date"><%- article.fields.release_date %></span>
+
+							</div>
+
+							<div class="actions">
+
+								<a href="/article/<%- article.fields.slug %>" class="read">Read</a>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				<% } %>
+
+			</div>
 
 		</div>
 
-	</div>
+	</main>
 
 	<% include include/footer.ejs %>
 
