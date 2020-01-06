@@ -191,6 +191,14 @@ footer > .body a {
   font-weight: 400;
   overflow-wrap: normal;
 }
+@media only screen and (max-width: 950px) {
+  footer .half_split {
+    display: inline-block;
+  }
+  footer .half_split .right {
+    margin-top: 20px;
+  }
+}
 .half_split {
   display: grid;
 }
@@ -319,6 +327,15 @@ footer > .body a {
   transform: scale(0.95);
 }
 @media only screen and (max-width: 950px) {
+  .posts .large,
+  .posts .medium {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+  }
+  .posts .large > .body > .titles > .title,
+  .posts .medium > .body > .titles > .title {
+    font-size: 25pt;
+  }
 }
 #post,
 #error {

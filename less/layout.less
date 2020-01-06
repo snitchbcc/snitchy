@@ -295,6 +295,22 @@ footer {
 
 	}
 
+	@media only screen and (max-width: @mobile_width) {
+
+		.half_split {
+
+			display: inline-block;
+
+			.right {
+
+				margin-top: 20px;
+
+			}
+
+		}
+
+	}
+
 }
 
 .half_split {
@@ -515,12 +531,18 @@ footer {
 
 	@media only screen and (max-width: @mobile_width) {
 
-		// &>* {
+		.large, .medium {
 
-			// grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
-			// grid-auto-rows: 1fr;
+			grid-row: ~"1 / 1";
+			grid-column: ~"1 / 1";
 
-		// }
+			&>.body>.titles>.title {
+
+				font-size: 25pt;
+
+			}
+
+		}
 
 	}
 
