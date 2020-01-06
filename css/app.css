@@ -3,14 +3,14 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local('Playfair Display Regular'), local('PlayfairDisplay-Regular'), url(https://fonts.gstatic.com/s/playfairdisplay/v15/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYhQ.ttf) format('truetype');
+  src: local('Playfair Display Regular'), local('PlayfairDisplay-Regular'), url(https://fonts.gstatic.com/s/playfairdisplay/v18/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYhQ.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Playfair Display';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: local('Playfair Display Bold'), local('PlayfairDisplay-Bold'), url(https://fonts.gstatic.com/s/playfairdisplay/v15/nuFlD-vYSZviVYUb_rj3ij__anPXBYf9lW4e4w.ttf) format('truetype');
+  src: local('Playfair Display Bold'), local('PlayfairDisplay-Bold'), url(https://fonts.gstatic.com/s/playfairdisplay/v18/nuFlD-vYSZviVYUb_rj3ij__anPXBYf9lW4e4w.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Roboto';
@@ -33,14 +33,17 @@ body {
   position: fixed;
   top: 0;
   z-index: 10;
-  padding: 20px;
+  padding: 15px 20px;
   width: 100%;
-  background-color: black;
+  background-color: #0070ff;
   overflow: hidden;
 }
 #menu .tophat {
   display: inline-block;
+  opacity: 1;
+  pointer-events: all;
   vertical-align: top;
+  transition: 0.2s all;
 }
 #menu .tophat img {
   margin-right: 20px;
@@ -52,6 +55,10 @@ body {
 }
 #menu > .titles {
   display: inline-block;
+  text-decoration: none;
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.2s all;
 }
 #menu .title {
   display: block;
@@ -70,7 +77,12 @@ body {
   overflow-wrap: normal;
 }
 #menu .items {
-  float: right;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.2s all;
 }
 #menu .items > * {
   color: white;
@@ -78,11 +90,44 @@ body {
   font-family: "Playfair Display";
   margin-left: 25px;
 }
+#menu .opener {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  opacity: 0;
+  pointer-events: none;
+  color: white;
+  font-size: 18pt;
+  font-family: "Playfair Display";
+  margin-left: 25px;
+  transition: 0.2s all;
+  cursor: pointer;
+}
+@media only screen and (max-width: 950px) {
+  #menu .items {
+    left: -5px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  #menu .opener {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+#menu.shown .items {
+  opacity: 1;
+  pointer-events: all;
+}
+#menu.shown .tophat,
+#menu.shown .titles {
+  opacity: 0;
+  pointer-events: none;
+}
 main {
   margin-top: 76.17px;
 }
 footer {
-  background-color: black;
+  background-color: #0070ff;
 }
 footer > .body {
   padding: 50px;
@@ -148,14 +193,12 @@ footer > .body a {
 .titled_section > .title {
   display: inline-block;
   margin-bottom: 50px;
-  padding: 15px 30px;
   width: 500px;
-  color: white;
-  font-size: 48pt;
+  color: black;
+  font-size: 50pt;
   font-family: "Playfair Display";
   font-weight: 700;
   overflow-wrap: normal;
-  background-color: black;
 }
 .titled_section > .text {
   display: inline-block;
@@ -186,7 +229,7 @@ footer > .body a {
   grid-column: 1;
 }
 .posts > * {
-  background-color: black;
+  background-color: #0070ff;
   transition: 0.2s all;
 }
 .posts > * > .body {
@@ -260,32 +303,43 @@ footer > .body a {
 .posts > *.interactive:hover > .body {
   transform: scale(0.95);
 }
-#post {
+#post,
+#error {
   padding: 50px;
 }
-#post > .pretitle {
+#post > .pretitle,
+#error > .pretitle {
   display: block;
   font-size: 20pt;
   font-family: "Playfair Display";
   font-weight: 700;
 }
-#post > .title {
+#post > .title,
+#error > .title {
   display: block;
   font-size: 50pt;
   font-family: "Playfair Display";
   font-weight: 700;
 }
-#post > .subtitle {
+#post > .subtitle,
+#error > .subtitle {
   display: block;
   font-size: 30pt;
   font-family: "Playfair Display";
   font-weight: 700;
 }
-#post > .body {
+#post > .body,
+#error > .body {
   display: block;
   margin-top: 30px;
   font-size: 18pt;
   font-family: "Roboto";
   font-weight: 500;
   line-height: 1.5;
+}
+@media only screen and (max-width: 950px) {
+  #post .title,
+  #error .title {
+    font-size: 35pt;
+  }
 }
